@@ -1,0 +1,42 @@
+/* 폰트 */
+:root {
+    --primary-font : "Noto Sans KR", sans-serif;
+    --secondary-font : "Poor Story", system-ui;
+}
+/* 색상 */
+:root {
+    --main-bg-color : #F4F5F7;
+    --sub-bg-color : #D9D9D9;
+    --hover-gray : #E9E9E9;
+    --btn-purple : #ACA0EB;
+    --btn-purple-window : #C4A5FA;
+    --btn-purple-possible :  #7F6AEE;
+    --black : #000;
+    --white : #fff;
+    --helper-red : #FF0000;
+}
+
+/* 글꼴 두께 */
+:root {
+    --regular-font-weight: 400;
+    --bold-font-weight: 700;
+}
+
+  /* 글꼴 크기 */
+:root {
+    --small-font-size: 14px;
+    --medium-font-size: 16px;
+    --large-font-size: 24px;
+
+    --title-font-size: 32px;
+    --sub-title-font-size: 20px;
+    --main-font-size: 15px;
+}
+
+/* 여백 */
+:root {
+    --spacong-tiny: 4px;
+    --spacing-small: 8px; 
+    --spacing-medium: 16px; 
+    --spacing-large: 24px;
+}

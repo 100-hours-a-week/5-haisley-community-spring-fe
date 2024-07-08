@@ -1,0 +1,133 @@
+<!-- charset 최상단 위치 확인하기 -->
+
+<!-- 헤더에 추가해야하는 폰트 preload -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"></noscript>
+
+
+<!-- window -->
+<div class="window">
+    <p class="title">게시글을 삭제하시겠습니까?</p>
+    <p>삭제한 내용은 복구 할 수 없습니다.</p>
+    <article class = "window-buttons">
+        <a class="black wbutton" href="/boards/detail/1">취소</a>
+        <a class="purple wbutton" href="/boards">확인</a>
+    </article>
+</div>
+<div class="overlay"></div>
+
+
+<div class="window">
+    <p class="title">댓글을 삭제하시겠습니까?</p>
+    <p>삭제한 내용은 복구 할 수 없습니다.</p>
+    <article class = "window-buttons">
+        <a class="black wbutton" href="/boards/detail/1">취소</a>
+        <a class="purple wbutton" href="/boards/detail/1">확인</a>
+    </article>
+</div>
+<div class="overlay"></div>
+
+<div class="window">
+    <p class="title">회원탈퇴 하시겠습니까?</p>
+    <p>작성된 게시글과 댓글은 삭제됩니다.</p>
+    <article class = "window-buttons">
+        <a class="black wbutton" href="/users/edit">취소</a>
+        <a class="purple wbutton" href="/login">확인</a>
+    </article>
+</div>
+<div class="overlay"></div>
+
+<!-- register -->
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/user/register.css">
+    <title>아무 말 대잔치 </title>
+</head>
+<body>
+    <section class="wrap">
+        <header>
+            <p class="title">아무 말 대잔치</p>
+            <div class="box">
+            </div>
+            <div class="back" onclick="window.location.href='/login';">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            
+            <hr class="horizontal-rule"/>
+        </header>
+        <section class="user">
+            <section class="head">
+                <article class="title">
+                회원가입
+                </article>
+            </section>
+            <section class="main">
+                <article class="profile-img">
+                    <p class="title-bold">
+                        프로필 사진
+                    </p>
+                    <p class = "help-text">
+                        * helper text
+                    </p>
+                    <div class="profile-box">
+                        <img class="image" src="/images/default.png">
+                    </div>
+                    <div class="plus">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                    </div>
+                </article>
+                <article class="email">
+                    <p class="title-bold">이메일*</p>
+                        <form class="input">
+                            <input type="text" name="email" placeholder="이메일을 입력하세요">
+                        </form>
+                        <p class = "help-text">
+                            * helper text
+                        </p>
+                </article>
+                <article class="email">
+                    <p class="title-bold">비밀번호*</p>
+                        <form class="input">
+                            <input type="text" name="password" placeholder="비밀번호를 입력하세요">
+                        </form>
+                        <p class = "help-text">
+                            * helper text
+                        </p>
+                </article>
+                <article class="email">
+                    <p class="title-bold">비밀번호 확인*</p>
+                        <form class="input">
+                            <input type="text" name="re-password" placeholder="비밀번호를 한번 더 입력하세요">
+                        </form>
+                        <p class = "help-text">
+                            * helper text
+                        </p>
+                </article>
+                <article class="email">
+                    <p class="title-bold">닉네임*</p>
+                        <form class="input">
+                            <input type="text" name="nickname" placeholder="닉네임을 입력하세요">
+                        </form>
+                        <p class = "help-text">
+                            * helper text
+                        </p>
+                </article>
+                <article class="links">
+                <a class="button" id="write-button" href="/login">회원가입</a>
+                <a class="go-login" href="/login">로그인 하러 가기</a>
+            </article>
+            </section>
+        </section>
+    </section>
+</body>
+</html>

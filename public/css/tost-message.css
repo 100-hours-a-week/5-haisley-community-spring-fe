@@ -1,0 +1,22 @@
+/*토스트 메시지*/
+#tost-message {
+    background-color:rgba(172, 160, 235, 1);
+    width: 102px;
+    height: 46px;
+    border-radius: 30px;
+    font-weight: var(--regular-font-weight);
+    font-size: 18px;
+    opacity: 0;
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-50%,0);
+    box-shadow: 3px 4px 11px 0px #00000040;
+    transition: all 0.5s;
+    cursor: default;
+}
+/*토스트 메시지 활성화 되었을 때*/
+#tost-message.active {
+    opacity: 100%;
+    bottom: 30px;
+}

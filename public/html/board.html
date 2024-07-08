@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/variables.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/board.css">
+        <link rel="stylesheet" type="text/css" href="/css/profile-dropdown.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module" src="/js/config.js"></script>
+        <script type="module" src="/js/fetchData.js"></script>
+        <script type="module" src="/js/boardFetch.js"></script>
+        <script type="module" src="/js/dropdown.js"></script>
+        <title>아무 말 대잔치 </title>
+    </head>
+<body>
+    <section class="wrap">
+        <header>
+            <p class="title"  onclick="window.location.href='/boards';">아무 말 대잔치</p>
+            <div class="dropdown">
+                <div class="box">
+                    <img id= "drop-btn" class="logo" src="/images/logo.jpg" alt="profile-img">
+                </div>
+                <div id = "dropdown-content"class="dropdown-content">
+                    <a href="/users/edit">회원정보수정</a>
+                    <a href="/users/edit/password">비밀번호수정</a>
+                    <a id="logout-btn">로그아웃</a>
+                </div>              
+            </div>         
+            <hr class="horizontal-rule"/>
+        </header>
+        <section class = "body">
+            <header class="hello">
+                <div>안녕하세요, </div>
+                <div>아무 말 대잔치 <b>게시판</b> 입니다.</div>
+            </header>
+            <article class="write">
+                <button class="purple-small-btn write-btn" onclick="window.location.href='/boards/write'">게시글 작성</button>
+            </article>
+            <article class="list" id="list">
+                <!-- board data 들어갈 자리 -->
+            </article>
+        </section>
+    </section>
+</body>
+</html>

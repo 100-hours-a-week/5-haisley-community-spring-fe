@@ -1,0 +1,30 @@
+.dropdown{
+    display : inline-block;
+}
+
+.dropdown-content{
+    display : none;
+    position : absolute;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    position: fixed;
+    left: 50%; /* 화면 가로 중앙으로 이동 */
+    transform: translateX(130%); 
+    top: 72px; 
+}
+
+.dropdown-content a{
+    display : flex;
+    background-color: var(--sub-bg-color);
+    width: 115px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    font-weight: var(--regular-font-weight);
+    font-size: 12px;
+}
+.dropdown-content a:hover{
+    background-color: var(--hover-gray);
+}

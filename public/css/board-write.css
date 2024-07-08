@@ -1,0 +1,50 @@
+.body input[type="text"],
+.body textarea{
+    border: none; 
+    width: 570px;
+    resize: none;
+    padding: 30px 20px;
+    box-sizing: border-box; 
+    background-color: transparent;
+}
+.body input[type="file"]{
+    border: none; 
+    padding: 0;
+    font-weight:var(--regular-font-weight);
+    font-size: 14px;
+}
+.body input[type="text"]{
+    font-weight:var(--bold-font-weight);
+    font-size: var(--medium-font-size);
+}
+textarea {
+    font-weight:400;
+    font-size: 15px;
+}
+
+.body{
+    width: 592px;
+}
+.head{
+    margin-top: 32px;
+    margin-bottom: 80px;
+}
+.body label h3{
+    margin-left: 20px;
+    margin-top: var(--spacing-large);
+}
+.body .horizontal-rule{
+    opacity: 0.16;
+}
+
+.image-margin{
+    margin : 10px 15px;
+}
+
+.left-margin{
+    margin-left: 20px;
+}
+#write-button{
+    margin: 30px auto;
+    cursor: not-allowed;
+}

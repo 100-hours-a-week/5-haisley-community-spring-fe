@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/variables.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/register.css">
+        <link rel="stylesheet" type="text/css" href="/css/profile-dropdown.css">
+        <link rel="stylesheet" type="text/css" href="/css/tost-message.css">
+        <script src = "/js/validUtils.js"></script>
+        <script type="module" src="/js/passwordEdit.js"></script>
+        <script type="module" src="/js/dropdown.js"></script>
+        <script type="module" src="/js/tostMessage.js"></script>
+        <title>아무 말 대잔치 </title>
+    </head>
+<body>
+    <button id="tost-message">수정 완료</button>
+    <section class="wrap">
+        <header>
+            <p class="title"  onclick="window.location.href='/boards';">아무 말 대잔치</p>
+            <div class="dropdown">
+                <div class="box">
+                    <img id= "drop-btn" class="logo" src="/images/logo.jpg" alt="profile-img">
+                </div>
+                <div id = "dropdown-content"class="dropdown-content">
+                    <a href="/users/edit">회원정보수정</a>
+                    <a href="/users/edit/password">비밀번호수정</a>
+                    <a id="logout-btn">로그아웃</a>
+                </div>
+            </div> 
+            <hr class="horizontal-rule"/>
+        </header>
+        <section class="body">
+            <section class="head title-margin">
+                <h1 class="title">비밀번호 수정</h1>
+            </section>
+            <section class="main">
+                <form action="/post" method="post">
+                    <label for="password"><h3>비밀번호</h3></label>
+                    <input id = "password" type="password" name="password" placeholder="비밀번호를 입력하세요">
+                    <p id = "password-help" class = "help-text">*비밀번호를 입력해주세요.</p>
+                    <label for="confirm-password"><h3>비밀번호 확인</h3></label>
+                    <input id="confirm-password"type="password" name="confirm-password" placeholder="비밀번호를 한번 더 입력하세요">
+                    <p id = "confirm-password-help" class = "help-text">*비밀번호를 한번더 입력해주세요.</p>
+                <button disabled id="save" class="purple-btn" type="submit">수정하기</button>
+                </form>
+            </section>
+        </section>
+    </section>
+</body>
+</html>

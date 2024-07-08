@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/variables.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="/js/validUtils.js"></script>
+    <script type="module" src="/js/login.js"></script>
+    <title>아무 말 대잔치 </title>
+</head>
+<body>
+    
+    <section class="wrap">
+        <header>
+            <p class="title"  onclick="window.location.href='/boards';">아무 말 대잔치</p>
+            <hr class="horizontal-rule"/>
+        </header>
+        <section class="body">
+            <h1>로그인</h1>
+            <form>
+                <label for="email"><h3>이메일 </h3></label>
+                <input type="email" name="email" id="email" placeholder="이메일을 입력하세요">  
+                <label for="password"><h3>비밀번호 </h3></label>
+                <input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요">
+                <p class="help-text" id="login-help"></p>
+                <button disabled type="submit" class="purple-btn" id="login-btn" >
+                    로그인
+                </button>
+            </form>
+            <a id="register" class="link" href="/register"><h4>회원가입</h4></a>
+        </section>
+    </section>
+</body>
+</html>

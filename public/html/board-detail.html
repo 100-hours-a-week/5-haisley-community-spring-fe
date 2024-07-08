@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/variables.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/board-detail.css">
+        <link rel="stylesheet" type="text/css" href="/css/profile-dropdown.css">
+        <link rel="stylesheet" type="text/css" href="/css/window.css">
+        <!-- <link rel="preload" href="/images/main.webp" as="image"> -->
+        <!-- <script type="module" src="/js/config.js"></script>
+        <script type="module" src="/js/fetchData.js"></script> -->
+        <script src="/js/modal.js"></script>
+        <script src="/js/validUtils.js"></script>
+        <script type="module" src="/js/dropdown.js"></script>
+        <script type="module" src="/js/boardDetailFetch.js"></script>
+        <script type="module" src="/js/boardDetail.js"></script>
+        <title>아무 말 대잔치 </title>
+    </head>
+<body>
+    <div class="window" id="comment-delete">
+        <h2 class="title">댓글을 삭제하시겠습니까?</h2>
+        <p>삭제한 내용은 복구 할 수 없습니다.</p>
+        <article class = "window-buttons">
+            <a class="black wbutton" id="comment-delete-cancel">취소</a>
+            <a class="purple wbutton" id="comment-delete-confirm">확인</a>
+        </article>
+    </div>
+    <div class="window" id="board-delete">
+        <h2 class="title">게시글을 삭제하시겠습니까?</h2>
+        <p>삭제한 내용은 복구 할 수 없습니다.</p>
+        <article class = "window-buttons">
+            <a class="black wbutton" id="board-delete-cancel">취소</a>
+            <a class="purple wbutton" id="board-delete-confirm">확인</a>
+        </article>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <section class="wrap">
+        <header>
+            <p class="title"  onclick="window.location.href='/boards';">아무 말 대잔치</p>
+            <div class="dropdown">
+                <div class="box">
+                    <img id= "drop-btn" class="logo" src="/images/logo.jpg" alt="profile-img">
+                </div>
+                <div id = "dropdown-content"class="dropdown-content">
+                    <a href="/users/edit">회원정보수정</a>
+                    <a href="/users/edit/password">비밀번호수정</a>
+                    <a id="logout-btn">로그아웃</a>
+                </div>           
+            </div>    
+            <div class="back" onclick="window.location.href='/boards';">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </div>     
+            <hr class="horizontal-rule"/>
+        </header>
+
+        <section class = "body">
+            <div id = "post">
+                <div class="post-entity">
+                <article class="head">
+                    <h2 class="title">
+                        제목1
+                    </h2>
+                    <article class="detail">
+                        <article class="text-detail">
+                        <p>
+                            <article class="box">
+                            <img class="logo" src="/images/default.png" alt="profile-img">
+                            </article>
+                            <h3 class="writer-detail"> 더미 작성자1</h3>
+                        </p>
+                        <h4 class="time-detail">
+                            2021-01-01 00:00:00
+                        </h4>
+                        </article>
+
+                        <article class = "small-buttons">
+                            <!-- <div class="sbutton" >수정</div>
+                            <div class="sbutton"  id="board-delete-btn" >삭제</div> -->
+                        </article>
+                    </article>
+                </article>
+
+                <hr class="horizontal-rule"/>
+
+                <article class = "main">
+                    <!-- 그 preload 넣기 -->
+                    <!-- <img class="board-image" src="/images/main.webp" alt="board-img"> -->
+                    <p class = "content">내용    </article>
+
+                <article class = "infos">
+                    <article class = "info">
+                        <p class="num">123</p>
+                        <h3>조회수</h3>
+                    </article>
+                    <article class = "info">
+                        <p class="num">123</p>
+                        <h3>댓글</h3>
+                    </article>
+                </article>
+                </div>
+            </div>
+
+                <hr class="horizontal-rule"/>
+            
+                <section class="write-comment">
+                    <form method="post">
+                        <label for="commentContent"></label>
+                        <textarea id="comment" name="commentContent" cols="30" rows="4" placeholder="댓글을 남겨주세요!"></textarea>
+                        <hr class="horizontal-rule"/>   
+                        <button disabled type="submit" id = "post-comment" class = "purple-small-btn comment-btn" href="#" target="_blank">댓글 등록</button>
+                        <button disabled type="submit" id = "edit-comment" class = "purple-small-btn comment-btn" href="#" target="_blank" style="display:none">댓글 수정</button>
+                    </form>
+                </section>
+            <section class="comments" id = "comments">
+                <article class = "unit">
+                    <article class="detail">
+                        <article class="text-detail">
+                        <p>
+                            <article class="box">
+                            <img class="logo" src="/images/default.png" alt="profile-img">
+                            </article>
+                            <h3 class="writer-detail"> 더미 작성자1</h3>
+                        </p>
+                        <h4 class="time-detail">2021-01-01 00:00:00</h4>
+                        </article>
+                        <article class = "small-buttons">
+                            <a class="sbutton" href="#" target="_blank">수정</a>
+                            <a class="sbutton" href="#" id = "comment-delete-btn">삭제</a>
+                        </article>
+                    </article>
+                    <h4 class = "content">댓글 내용</h4>
+                </article>
+                <article class = "unit">
+                    <article class="detail">
+                        <article class="text-detail">
+                        <p>
+                            <article class="box">
+                            <img class="logo" src="/images/default.png" alt="profile-img">
+                            </article>
+                            <h3 class="writer-detail"> 더미 작성자1</h3>
+                        </p>
+                        <h4 class="time-detail">2021-01-01 00:00:00</h4>
+                        </article>
+                        <article class = "small-buttons">
+                            <a class="sbutton" href="#" target="_blank">수정</a>
+                            <a class="sbutton" href="#" id = "comment-delete-btn">삭제</a>
+                        </article>
+                    </article>
+                    <h4 class = "content">댓글 내용</h4>
+                </article>
+                <article class = "unit">
+                    <article class="detail">
+                        <article class="text-detail">
+                        <p>
+                            <article class="box">
+                            <img class="logo" src="/images/default.png" alt="profile-img">
+                            </article>
+                            <h3 class="writer-detail"> 더미 작성자1</h3>
+                        </p>
+                        <h4 class="time-detail">2021-01-01 00:00:00</h4>
+                        </article>
+                        <article class = "small-buttons">
+                            <div class="sbutton no-link" href="#" target="_blank">수정</div>
+                            <div class="sbutton no-link" href="#" id = "comment-delete-btn">삭제</div>
+                        </article>
+                    </article>
+                    <h4 class = "content">댓글 내용</h4>
+                </article>
+                
+            </section>
+        </section>
+    </section>
+</body>
+</html>

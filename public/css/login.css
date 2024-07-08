@@ -1,0 +1,17 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 355px;
+    width: 100%;
+    margin: 150px 0px;
+}
+label {
+    display: block; 
+    margin-top: var(--spacing-medium);
+}
+button {
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
+    cursor: not-allowed;
+}

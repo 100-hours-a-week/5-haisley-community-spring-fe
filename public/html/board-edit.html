@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/variables.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/board-write.css">
+        <link rel="stylesheet" type="text/css" href="/css/profile-dropdown.css">
+        <script src="/js/validUtils.js"></script>
+        <script type="module" src="/js/dropdown.js"></script>
+        <script type="module" src="/js/boardEdit.js"></script>
+        <title>아무 말 대잔치 </title>
+    </head>
+<body>
+    <section class="wrap">
+        <header>
+            <p class="title"  onclick="window.location.href='/boards';">아무 말 대잔치</p>
+            <div class="dropdown">
+                <div class="box">
+                    <img id= "drop-btn" class="logo" src="/images/logo.jpg" alt="profile-img">
+                </div>
+                <div id = "dropdown-content"class="dropdown-content">
+                    <a href="/users/edit">회원정보수정</a>
+                    <a href="/users/edit/password">비밀번호수정</a>
+                    <a id="logout-btn">로그아웃</a>
+                </div>          
+            </div>    
+            <div class="back" onclick="window.location.href='/boards';">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </div>     
+            <hr class="horizontal-rule"/>
+        </header>
+
+        <section class = "body">
+            <article class = "head">
+                    <h2> 게시글 수정</h2>
+            </article> 
+
+            <article class="main" id="main">
+                <form action="/post" method="post">
+                    <label for="title"><h3>제목 * </h3></label>
+                    <hr class="horizontal-rule"/> 
+                    <input type="text" name="title" id = "title" placeholder="제목을 입력해주세요. (최대 26글자)" value="">  
+                    <hr class="horizontal-rule"/> 
+                    <label for="content"><h3>내용 * </h3></label>
+                    <hr class="horizontal-rule"/> 
+                    <textarea name="content" id="content" cols="30" rows="11" placeholder="내용을 입력해주세요." ></textarea>
+                    <hr class="horizontal-rule"/> 
+                    <p class="help-text left-margin">*helper text</p>
+                    <div class="board-image">
+                        <label for="attachFilePath"><h3>이미지</h3></label>
+                        <input class = "left-margin"type="file" name="attachFilePath" id = "real-upload" accept="images/*">
+                    </div>
+                    <button type="submit" class="purple-btn" id="write-button" href="/boards">수정하기</button>
+                </form>
+        </section>
+    </section>
+</body>
+</html>

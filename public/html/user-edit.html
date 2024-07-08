@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" as="style">
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+        <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Poor+Story&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/variables.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/register.css">
+        <link rel="stylesheet" type="text/css" href="/css/profile-dropdown.css">
+        <link rel="stylesheet" type="text/css" href="/css/tost-message.css">
+        <link rel="stylesheet" type="text/css" href="/css/window.css">
+        <link rel="preload" href="/images/default.png" as="image">
+        <script src="/js/modal.js"></script>
+        <script src="/js/validUtils.js"></script>
+        <script type="module" src="/js/userEditFetch.js"></script>
+        <script type="module" src="/js/userEdit.js"></script>
+        <script type="module" src="/js/tostMessage.js"></script>
+        <script type="module" src="/js/dropdown.js"></script>
+        <title>아무 말 대잔치 </title>
+    </head>
+<body>
+    <div class="window" id="user-delete">
+        <h2 class="title">회원탈퇴 하시겠습니까?</h2>
+        <p>작성된 게시글과 댓글은 삭제됩니다.</p>
+        <article class = "window-buttons">
+            <a class="black wbutton" id="user-delete-cancel" >취소</a>
+            <a class="purple wbutton" id="user-delete-confirm">확인</a>
+        </article>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <button disabled id="tost-message">수정 완료</button>
+    <section class="wrap">
+        <header>
+            <p class="title"  onclick="window.location.href='/boards';">아무 말 대잔치</p>
+            <div class="dropdown">
+                <div class="box">
+                    <img id= "drop-btn" class="logo" src="/images/logo.jpg" alt="profile-img">
+                </div>
+                <div id = "dropdown-content"class="dropdown-content">
+                    <a href="/users/edit">회원정보수정</a>
+                    <a href="/users/edit/password">비밀번호수정</a>
+                    <a id="logout-btn">로그아웃</a>
+                </div>
+            </div> 
+            <hr class="horizontal-rule"/>
+        </header>
+        <section class="body">
+            <section class="head">
+                <h1 class="title">회원정보수정</h1>
+            </section>
+            <section class="main">
+                <div id="form-div">
+                <form>
+                    <article class="profile-img">
+                        <h3>프로필 사진*</h3>
+                        <div class="profile-box">
+                            <img id="upload-img" src="/images/default.png" alt="profile-img">
+                        </div>
+                        <input type="file" id="real-upload" name="profile-img" accept="images/*">
+                        <div class="edit plus">
+                            <a class="sbutton">변경</a>
+                        </div>
+                    </article>
+                    <h3>이메일</h3>
+                    <h4 class="content">startupcode@gmail.com</h4>
+                    <label for="nickname"><h3>닉네임</h3></label>
+                    <input id="nickname" type="text" name="nickname" placeholder="새 닉네임을 입력하세요" value="스타트업코드">
+                    <p id="nickname-help" class = "help-text">&nbsp</p>
+                    <button id="save" class="purple-btn" type="submit">수정하기</button>
+                </form>
+                </div>
+                    <article class="links">
+                        <a class="go-login" id="user-delete-btn"><h4>회원 탈퇴</h4></a>
+                    </article>
+            </section>
+        </section>
+    </section>
+</body>
+</html>

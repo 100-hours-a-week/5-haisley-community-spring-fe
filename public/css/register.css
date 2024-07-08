@@ -1,0 +1,101 @@
+#real-upload{
+    display: none;
+}
+#upload-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(80%)
+}
+#plus{
+    position: absolute;
+    right: 50%; /* 화면 가로 중앙으로 이동 */
+    top:374px; /* 맨 위에서 34px 아래로 이동 */
+    transform: translateX(50%);
+    font-size: 30px;
+    cursor: pointer;
+}
+#register-btn{
+    cursor: not-allowed;
+}
+#password-edit{
+    cursor: not-allowed;
+}
+
+.body{
+    display: flex;
+    width: 455px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.head h1{
+    margin: var(--spacing-medium);
+}
+.profile-box{
+    width:  149px;
+    height: 149px;
+    border-radius: 70%;
+    overflow: hidden;
+    margin: 0px auto;
+
+}
+
+.profile-img{
+    margin-bottom: 20px;
+}
+.edit{
+    position: absolute;
+    right: 50%; 
+    top:354px; 
+    transform: translateX(50%);
+}
+.sbutton{
+    width: 50px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid var(--white);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.35);
+
+    text-decoration: none;
+    color: var(--white);
+    font-weight: var(--bold-font-weight);
+    font-size: var(--main-font-size);
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form label h3{
+    margin-top:var(--spacing-small);
+}
+
+.links .save-btn{
+    background-color:rgba(172, 160, 235, 1);
+    width: 102px;
+    height: 46px;
+    border-radius: 30px;
+    font-weight: var(--regular-font-weight);
+    font-size: 18px;
+    margin-top: 60px;
+}
+.purple-btn{
+    margin-top: var(--spacing-medium);
+}
+.go-login{
+    text-align: center;
+}
+.title-margin{
+    margin-top: 60px;
+}
+.help-text{
+    width:355px;
+}
