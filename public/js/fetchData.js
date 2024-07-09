@@ -2,16 +2,23 @@
 
 // const backendDomain ='https://rooster-comic-mackerel.ngrok-free.app'
 // const backendDomain = 'http://localhost:3001'
+function getAuthToken() {
+    return localStorage.getItem('authToken');
+}
 
 import { getBackendDomain } from './config.js';
 
 async function fetchData(path) {
     const address = getBackendDomain() + path;
+    const token = getAuthToken();
     try {
         const response = await fetch(address,
             {
                 method: 'GET',
-                credentials: 'include'
+                credentials: 'include',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             });
         if (response.status === 401) {
             window.location.href = '/login';
@@ -29,12 +36,14 @@ async function fetchData(path) {
 
 async function postData(jsonData, path){
     const address = getBackendDomain() + path;
+    const token = getAuthToken(); 
     try{
         const response = await fetch(address, {
             method: 'POST',
             credentials: 'include',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(jsonData)
         });
@@ -52,10 +61,14 @@ async function postData(jsonData, path){
 
 async function deleteData(path){
     const address = getBackendDomain() + path;
+    const token = getAuthToken(); 
     try{
         const response = await fetch(address, {
             method: 'DELETE',
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         });
         console.log(response);
         if (response.status === 401) {
@@ -72,12 +85,14 @@ async function deleteData(path){
 
 async function patchData(jsonData, path){
     const address = getBackendDomain() + path;
+    const token = getAuthToken(); 
     try{
         const response = await fetch(address, {
             method: 'PATCH',
             credentials: 'include',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(jsonData)
         });

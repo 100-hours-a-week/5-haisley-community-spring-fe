@@ -4,6 +4,7 @@ TODO
 */
 
 import { postData } from './fetchData.js';
+import { getBackendDomain } from './config.js';
 
 function validateInput() {
     let emailInput = document.getElementById('email');
@@ -28,24 +29,34 @@ document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);
 
-    let jsonData = {};
-    formData.forEach((value, key) => {
-        jsonData[key] = value;
-    });
-    console.log(jsonData);
-    postData(jsonData,'/users/login')
-    .then((res)=>{
-        console.log(res);
-        if (res.status === 200){
+    // Modify the field name from 'email' to 'userName'
+    const emailValue = formData.get('email');
+    if (emailValue) {
+        formData.set('username', emailValue);
+        formData.delete('email');
+    }
+
+    // Send FormData to server
+    fetch(getBackendDomain() + '/login', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        // Extract token from headers
+        const token = response.headers.get('Authorization')?.replace('Bearer ', '');
+        if (token) {
+            // Store token in localStorage
+            localStorage.setItem('authToken', token);
             window.location.href = '/boards';
-        }else{
+        } else {
             alert('입력 정보가 일치하지 않습니다');
-            window.location.href = '/login'
+            window.location.href = '/login';
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 });
-
-
 
 
 
