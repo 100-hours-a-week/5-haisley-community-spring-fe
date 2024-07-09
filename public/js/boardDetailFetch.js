@@ -27,9 +27,9 @@ function processBoardDetailData(data){
 
     const postElement = document.createElement('div');
     postElement.classList.add('post-entity');
-    const latestImg = boardData.file_path;
-    console.log(boardData.file_path);
-    const fileHtml = latestImg === undefined || latestImg === null ? "" : `<img class="board-image" src="${getBackendDomain() + boardData.file_path}" alt="board-img">`;
+    const latestImg = boardData.boardImage;
+    console.log(boardData.boardImage);
+    const fileHtml = latestImg === undefined || latestImg === null ? "" : `<img class="board-image" src="${boardData.boardImage}" alt="board-img">`;
 
     postElement.innerHTML = `
     <article class="head">
@@ -40,12 +40,12 @@ function processBoardDetailData(data){
             <article class="text-detail">
             <p>
                 <article class="box">
-                <img class="logo" src="${getBackendDomain() + boardData.profile_image}" alt="profile-img">
+                <img class="logo" src="${boardData.profileImage}" alt="profile-img">
                 </article>
                 <h3 class="writer-detail">${boardData.nickname}</h3>
             </p>
             <h4 class="time-detail">
-            ${formatDate(boardData.created_at)}
+            ${formatDate(boardData.createdAt)}
             </h4>
             </article>
     
@@ -64,7 +64,7 @@ function processBoardDetailData(data){
     
     <article class="infos">
         <article class="info">
-            <p class="num">${formatNumber(boardData.hits)}</p>
+            <p class="num">${formatNumber(boardData.hit)}</p>
             <h3>조회수</h3>
         </article>
         <article class="info">
@@ -105,17 +105,17 @@ function processCommentData(data){
 
         const unit  = document.createElement('div');
         unit.classList.add('unit');
-        unit.setAttribute('data-comment-id', comment.comment_id);
+        unit.setAttribute('data-comment-id', comment.commentId);
         unit.innerHTML = 
             `<article class="detail">
                     <article class="text-detail">
                     <p>
                         <article class="box">
-                        <img class="logo" src="${getBackendDomain()+comment.profile_image}" alt="profile-img">
+                        <img class="logo" src="${comment.profileImage}" alt="profile-img">
                         </article>
                         <h3 class="writer-detail"> ${comment.nickname}</h3>
                     </p>
-                    <h4 class="time-detail">${formatDate(comment.created_at)}</h4>
+                    <h4 class="time-detail">${formatDate(comment.createdAt)}</h4>
                     </article>
                     <article class = "small-buttons">
                     <a class="sbutton comment-edit-button">수정</a>
@@ -163,9 +163,9 @@ function processCommentData(data){
 Promise.all([
     fetchData('/boards/'+extractedId),
 ]).then(([res]) => {
-    console.log(res.data);
-    processBoardDetailData(res.data);
-    processCommentData(res.data);
+    console.log(res);
+    processBoardDetailData(res);
+    processCommentData(res);
 });
 
 
