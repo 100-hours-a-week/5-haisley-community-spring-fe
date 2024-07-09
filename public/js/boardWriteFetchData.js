@@ -19,11 +19,11 @@ document.querySelector('form').addEventListener('submit', function(event) {
         })
         .then((res) => {
             console.log(res);
-            if (res.status === 201) {
-                window.location.href = '/boards/detail/' + res.data.post_id;
+            if (res.boardId) {
+                window.location.href = '/boards/detail/' + res.boardId;
             } else {
                 
-                // window.location.href = '/boards';
+                window.location.href = '/boards';
             }
         })
         .catch(error => {
