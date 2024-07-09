@@ -190,7 +190,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
             jsonData[key] = value;
         });
 
-        jsonData.profileImagePath = imagePath;
+        //[ ] 업로드 안 했을 때 null처리
+        jsonData.profileImage = imagePath;
 
         console.log(jsonData);
         console.log("updated!!!")
@@ -199,7 +200,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
     })
     .then(emailCheckRes => {
         console.log(emailCheckRes);
-        if (emailCheckRes.status !== 200) {
+        if (emailCheckRes.result !== true) {
+            console.log()
             alert('중복된 이메일입니다!');
             throw new Error('중복된 이메일');
         }
@@ -207,15 +209,15 @@ document.querySelector('form').addEventListener('submit', function(event) {
     })
     .then(nicknameCheckRes => {
         console.log(nicknameCheckRes);
-        if (nicknameCheckRes.status !== 200) {
+        if (nicknameCheckRes.result !== true) {
             alert('중복된 닉네임입니다!');
             throw new Error('중복된 닉네임');
         }
-        return postData(jsonData, '/users/signup');
+        return postData(jsonData, '/join');
     })
     .then(signupRes => {
         console.log(signupRes);
-        if (signupRes.status === 201) {
+        if (signupRes.result === true) {
             window.location.href = '/login';
             alert('회원가입이 완료되었습니다!');
         } else {
