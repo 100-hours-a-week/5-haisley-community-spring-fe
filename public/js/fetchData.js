@@ -17,6 +17,7 @@ async function fetchData(path) {
             window.location.href = '/login';
         } else if (response.status === 403) {
             alert("권한이 없습니다!");
+            window.location.href = '/login';
         }
         console.log(response);
         return response.json(); // JSON 데이터 반환
@@ -41,6 +42,7 @@ async function postData(jsonData, path){
             window.location.href = '/login';
         } else if (response.status === 403) {
             alert("권한이 없습니다!");
+            window.location.href = '/login';
         }
         return response.json();
         }catch(error) {
@@ -60,6 +62,7 @@ async function deleteData(path){
             window.location.href = '/login';
         } else if (response.status === 403) {
             alert("권한이 없습니다!");
+            window.location.href = '/login';
         }
         return response.json();
         }catch(error) {
@@ -82,6 +85,7 @@ async function patchData(jsonData, path){
             window.location.href = '/login';
         } else if (response.status === 403) {
             alert("권한이 없습니다!");
+            window.location.href = '/login';
         }
         return response.json();
         }catch(error) {
@@ -98,7 +102,7 @@ async function uploadImageAndGetPath() {
             return;
         }
 
-        formData.append('myFile', file);
+        formData.append('file', file);
 
         const response = await fetch(getBackendDomain() + '/uploadImg', {
             method: 'POST',
@@ -113,14 +117,15 @@ async function uploadImageAndGetPath() {
             return;
         } else if (response.status === 403) {
             alert("권한이 없습니다!");
+            window.location.href = '/login';
             return;
         }
 
         const res = await response.json();
         console.log(res);
 
-        if (res.data && res.data.file_path) {
-            return res.data.file_path; // 이미지 경로 반환
+        if (res.file_path) {
+            return res.file_path; // 이미지 경로 반환
         } else {
             throw new Error('Invalid response format');
         }

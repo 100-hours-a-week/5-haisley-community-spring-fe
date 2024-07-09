@@ -51,6 +51,8 @@ app.use(express.static('public'));
 // 웹 서버가 사용할 포트 번호를 정의합니다.
 const port = 3000;
 
+app.use(express.urlencoded({ extended: true }));
+
 
 /**
 * 루트 경로('/')에 대한 GET 요청을 처리
@@ -69,6 +71,7 @@ app.get('/', (req, res) => {
 app.get('/login',(req, res) => {
   res.sendFile(__dirname +'/public/html/login.html');
 });
+
 
 // 회원 가입
 app.get('/register',(req, res) => {

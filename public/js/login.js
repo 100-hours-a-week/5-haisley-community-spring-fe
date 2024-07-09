@@ -46,5 +46,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
 });
 
 
+
+
+
 document.getElementById('email').addEventListener('input', validateInput);
 document.getElementById('password').addEventListener('input', validateInput);
