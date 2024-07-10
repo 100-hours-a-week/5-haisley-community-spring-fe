@@ -94,7 +94,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
     patchData(jsonData,'/users/password')
     .then((res)=>{
         console.log(res);
-        if (res.status !== 200){
+        if (res.result !== true){
             alert("변경 중 오류가 발생했습니다!");
         }
     });

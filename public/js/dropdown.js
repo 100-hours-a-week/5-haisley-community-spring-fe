@@ -19,7 +19,7 @@ document.getElementById('logout-btn').addEventListener('click', function(event) 
     let jsonData = {};
     postData(jsonData,'/users/logout')
     .then((res)=>{
-        console.log(res);
+        alert("로그아웃됐습니다!");
         window.location.href = '/login';
     });
 });
