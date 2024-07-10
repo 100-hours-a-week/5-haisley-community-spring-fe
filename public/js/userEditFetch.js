@@ -32,19 +32,19 @@ function getProfileImage(e) {
 
 function processUserEditData(data){
     console.log(data);
-    const userData = data.user;
+    const userData = data;
     const listBox = document.getElementById('form-div');
     listBox.innerHTML = '';
 
     const userElement = document.createElement('div');
     userElement.classList.add('user-element');
-    const latestProfile = userData.profile_image;
+    const latestProfile = userData.profileImage;
     userElement.innerHTML = `
     <form>
         <article class="profile-img">
             <h3>프로필 사진*</h3>
             <div class="profile-box">
-                <img id="upload-img" src="${getBackendDomain()+ latestProfile}" alt="profile-img">
+                <img id="upload-img" src="${latestProfile}" alt="profile-img">
             </div>
             <input type="file" id="real-upload" name="profile-img" accept="images/*">
             <div class="edit" id="plus-img">
@@ -83,7 +83,6 @@ function processUserEditData(data){
     
         uploadImageAndGetPath()
         .then(imagePath => {
-
     
             formData.forEach((value, key) => {
                 jsonData[key] = value;
@@ -96,7 +95,7 @@ function processUserEditData(data){
         })
         .then(nicknameCheckRes => {
             console.log(nicknameCheckRes);
-            if (nicknameCheckRes.status !== 200) {
+            if (nicknameCheckRes.result !== true) {
                 // 중복된 닉네임이면 알림 표시 후 Promise를 거부하여 다음 작업을 중지
                 alert('중복된 닉네임입니다!');
                 throw new Error('중복된 닉네임');
@@ -107,7 +106,7 @@ function processUserEditData(data){
         })
         .then(patchRes => {
             console.log(patchRes);
-            if (patchRes.status !== 200) {
+            if (patchRes.result !== true) {
                 alert("변경 중 오류가 발생했습니다!");
             }
             // patchData 함수가 성공하든 실패하든 tostOn 함수 호출
@@ -126,7 +125,7 @@ Promise.all([
     fetchData('/users'),
 ]).then(([res]) => {
     console.log(res);
-    processUserEditData(res.data);
+    processUserEditData(res);
 });
 
 const deleteCancelBtn = document.getElementById('user-delete-cancel');
