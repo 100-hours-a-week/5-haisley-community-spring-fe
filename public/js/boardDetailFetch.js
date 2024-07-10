@@ -202,7 +202,7 @@ document.getElementById('edit-comment').addEventListener('click', function(event
 
     patchData(jsonData,'/boards/'+extractedId+'/comments/'+commentId)
     .then((res)=>{
-        if (res.status === 200) {
+        if (res.commentId != null) {
             alert("수정되었습니다!")
         } 
         window.location.href = '/boards/detail/'+extractedId;
