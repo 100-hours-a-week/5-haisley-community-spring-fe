@@ -27,15 +27,15 @@ function processBoardEditData(data){
 
     const postElement = document.createElement('div');
     postElement.classList.add('post-entity');
-    const latestImg = boardData.board_image;
+    const latestImg = boardData.boardImage;
     const fileMsg = latestImg === undefined || latestImg === null ? "" : "기존 파일 명 : " + (typeof latestImg === 'string' ? latestImg.split('/').pop() : latestImg);
     postElement.innerHTML = `
     <form method="patch">
-    <label for="postTitle"><h3>제목 * </h3></label>
+    <label for="title"><h3>제목 * </h3></label>
     <hr class="horizontal-rule"/> 
     <input type="text" name="title" id = "title" placeholder="제목을 입력해주세요. (최대 26글자)" value="${boardData.title}">  
     <hr class="horizontal-rule"/> 
-    <label for="postContent"><h3>내용 * </h3></label>
+    <label for="content"><h3>내용 * </h3></label>
     <hr class="horizontal-rule"/> 
     <textarea name="content" id="content" cols="30" rows="11" placeholder="내용을 입력해주세요." >${boardData.content}</textarea>
     <hr class="horizontal-rule"/> 
@@ -90,8 +90,9 @@ function processBoardEditData(data){
         })
         .then((res) => {
             console.log(res);
-            if (res.status === 200) {
+            if (res.boardId != null) {
                 alert("수정되었습니다!")
+                console.log(res.boardId);
                 window.location.href = '/boards/detail/' + extractedId;
             } else{
 
@@ -122,5 +123,5 @@ Promise.all([
     fetchData('/boards/'+extractedId),
 ]).then(([res]) => {
     console.log(res);
-    processBoardEditData(res.data);
+    processBoardEditData(res);
 });
