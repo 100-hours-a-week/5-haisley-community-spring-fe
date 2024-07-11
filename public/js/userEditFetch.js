@@ -92,24 +92,13 @@ function processUserEditData(data){
             localStorage.setItem('profile', jsonData.profileImage)
             
             // 중복된 닉네임인지 확인
-            // [ ] 중복된 닉네임이 본인이라면...?
-            return fetchData('/users/nickname/check?nickname=' + jsonData.nickname);
-        })
-        .then(nicknameCheckRes => {
-            console.log(nicknameCheckRes);
-            if (nicknameCheckRes.result !== true) {
-                // 중복된 닉네임이면 알림 표시 후 Promise를 거부하여 다음 작업을 중지
-                alert('중복된 닉네임입니다!');
-                throw new Error('중복된 닉네임');
-            }
-    
-            // 중복된 닉네임이 아니면 patchData 함수 실행
+            // [x] 중복된 닉네임이 본인이라면...?
             return patchData(jsonData, '/users');
         })
         .then(patchRes => {
             console.log(patchRes);
             if (patchRes.result !== true) {
-                alert("변경 중 오류가 발생했습니다!");
+                alert('중복된 닉네임입니다!');
             }
             // patchData 함수가 성공하든 실패하든 tostOn 함수 호출
             tostOn();
