@@ -18,8 +18,22 @@ const boardDeleteModal = document.getElementById('board-delete');
 // 댓글 삭제 모달
 const commentDeleteModal = document.getElementById('comment-delete');
 
+
 function processBoardDetailData(data){
+
+    const currentUserId =  parseInt(localStorage.getItem('userId'));
     const boardData = data.board;
+
+    console.log(boardData.userId , currentUserId);
+    const editDeleteButtons = boardData.userId == currentUserId ? `
+    <article class="small-buttons">
+        <a class="sbutton" id="board-edit-btn">수정</a>
+        <a class="sbutton" id="board-delete-btn">삭제</a>
+    </article>
+` : '';
+
+
+
     const listBox = document.getElementById('post');
     listBox.innerHTML = '';
 
@@ -49,10 +63,7 @@ function processBoardDetailData(data){
             </h4>
             </article>
     
-            <article class="small-buttons">
-                <a class="sbutton" id="board-edit-btn">수정</a>
-                <a class="sbutton" id="board-delete-btn">삭제</a>
-            </article>
+            ${editDeleteButtons}
         </article>
     </article>
     
@@ -100,8 +111,18 @@ function processCommentData(data){
     listBox.innerHTML = '';
 
     const fragment = document.createDocumentFragment();
+    const currentUserId =  parseInt(localStorage.getItem('userId'));
 
     commentData.forEach((comment) => {
+        
+
+        const editDeleteButtons = comment.userId === currentUserId ? `
+        <article class="small-buttons">
+            <a class="sbutton comment-edit-button">수정</a>
+            <a class="sbutton comment-delete-btn">삭제</a>
+        </article>
+    ` : '';
+
 
         const unit  = document.createElement('div');
         unit.classList.add('unit');
@@ -117,10 +138,7 @@ function processCommentData(data){
                     </p>
                     <h4 class="time-detail">${formatDate(comment.createdAt)}</h4>
                     </article>
-                    <article class = "small-buttons">
-                    <a class="sbutton comment-edit-button">수정</a>
-                    <a class="sbutton comment-delete-btn">삭제</a>
-                    </article>
+                    ${editDeleteButtons}
             </article>
                 <h4 class = "content">${comment.content}</h4>`;
         fragment.appendChild(unit);

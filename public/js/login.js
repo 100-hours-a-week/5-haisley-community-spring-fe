@@ -52,8 +52,9 @@ document.querySelector('form').addEventListener('submit', function(event) {
             fetchData('/users')
             .then(res => {
                 console.log(res);
-                // alert(res.profileImage);
+                alert(res.userId);
                 localStorage.setItem('profile', res.profileImage);
+                localStorage.setItem('userId', res.userId);
             })
 
             window.location.href = '/boards';
