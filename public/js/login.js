@@ -55,9 +55,9 @@ document.querySelector('form').addEventListener('submit', function(event) {
                 alert(res.userId);
                 localStorage.setItem('profile', res.profileImage);
                 localStorage.setItem('userId', res.userId);
+                window.location.href = '/boards';
             })
 
-            window.location.href = '/boards';
         } else {
             alert('입력 정보가 일치하지 않습니다');
             window.location.href = '/login';
