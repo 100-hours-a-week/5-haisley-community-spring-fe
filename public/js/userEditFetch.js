@@ -89,6 +89,7 @@ function processUserEditData(data){
             });
             console.log(jsonData);
             jsonData.profileImage = imagePath===undefined? latestProfile : imagePath;
+            localStorage.setItem('profile', jsonData.profileImage)
             
             // 중복된 닉네임인지 확인
             // [ ] 중복된 닉네임이 본인이라면...?

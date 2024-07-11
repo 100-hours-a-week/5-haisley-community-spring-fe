@@ -15,6 +15,14 @@ function dropDown() {
     }
 }
 
+function profileImage() {
+    const profileImgElement = document.getElementById("drop-btn");
+    if (profileImgElement) {
+        profileImgElement.setAttribute("src", localStorage.getItem('profile'));
+    } else {
+        console.error("Profile image element not found");
+    }
+}
 document.getElementById('logout-btn').addEventListener('click', function(event) {
     let jsonData = {};
     postData(jsonData,'/users/logout')
@@ -24,6 +32,11 @@ document.getElementById('logout-btn').addEventListener('click', function(event) 
     });
 });
 
-const dropBtn = document.getElementById("drop-btn");
+// 호출 부분 예시
+document.addEventListener("DOMContentLoaded", () => {
+    profileImage();  // 프로필 이미지를 설정하는 함수 호출
+    const dropBtn = document.getElementById("drop-btn");
 
-dropBtn.addEventListener('click',dropDown);
+    dropBtn.addEventListener('click',dropDown);
+    
+});

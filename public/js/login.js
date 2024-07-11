@@ -3,7 +3,7 @@ TODO
 [ ] button에 disable 넣어두기
 */
 
-import { postData } from './fetchData.js';
+import { postData, fetchData } from './fetchData.js';
 import { getBackendDomain } from './config.js';
 
 function validateInput() {
@@ -46,7 +46,16 @@ document.querySelector('form').addEventListener('submit', function(event) {
         const token = response.headers.get('Authorization')?.replace('Bearer ', '');
         if (token) {
             // Store token in localStorage
-            localStorage.setItem('authToken', token);
+            localStorage.setItem('authToken', token)
+            
+            // store profile image in localStorage
+            fetchData('/users')
+            .then(res => {
+                console.log(res);
+                // alert(res.profileImage);
+                localStorage.setItem('profile', res.profileImage);
+            })
+
             window.location.href = '/boards';
         } else {
             alert('입력 정보가 일치하지 않습니다');
